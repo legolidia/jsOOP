@@ -4,17 +4,20 @@ import Conjuradores from "./Conjuradores.js";
 
 export default class Druida extends Conjuradores {
 
-  totalTransformacoes;
+  #totalTransformacoes;
 
   constructor(mana, poder, totalTransformacoes){
     super(mana, poder);
-    this.totalTransformacoes = totalTransformacoes;
+    this.#totalTransformacoes = totalTransformacoes;
   }
  
   transformaAnimal(animal){
-    this.totalTransformacoes -=1 ;
-    return `${animal} - ${this.totalTransformacoes} transformacoes restantes`
+    if (this.#totalTransformacoes > 0){
+    this.#totalTransformacoes -=1 ;
+    return `${animal} - ${this.#totalTransformacoes} transformacoes restantes`
+  } else {
+    return `Sem transformacoes restantes`
   }
-
+  }
 }
 

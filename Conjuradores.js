@@ -15,9 +15,19 @@
       return this.#poder
     }
 
-    soltarMagia(int, mana, poder){
-      if (mana >= int){
-        return `Soltou magia com poder ${poder}`
+    set mana(newMana){
+      this.#mana = newMana
+    }
+
+    set poder(poder){
+      this.#poder = poder
+    }
+
+
+    soltarMagia(int){
+      if (this.#mana >= int){
+        this.#mana -= int
+        return `Sobrou ${this.#mana} de mana`
       } else {
         return `Mana insuficiente`
       }
